@@ -70,7 +70,7 @@ export default function App() {
       plots: [p1, p2],
       comments: {
         ...defaultReport().comments,
-        otherComments: "They are lies in the Reshdential Area of this Municipality.",
+        otherComments: "They are lies in the Residential Area of this Municipality.",
       },
     });
     setMenu("report");
@@ -90,7 +90,7 @@ export default function App() {
     <>
       <header>
         <h1>Valuation Report Generator</h1>
-        <span className="subtitle">browser edition · runs entirely client-side</span>
+        <span className="subtitle">browser edition. </span>
         <div className="header-actions">
           <a
             className="home-link"
