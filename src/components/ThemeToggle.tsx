@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 type Theme = "light" | "dark" | "ocean";
 
-const STORAGE_KEY = "vansavali.theme";
+const STORAGE_KEY = "valuation.theme";
 const THEMES: Theme[] = ["light", "dark", "ocean"];
 
 const NEXT: Record<Theme, Theme> = {
@@ -18,9 +18,9 @@ const LABEL: Record<Theme, string> = {
 };
 
 const ICON: Record<Theme, string> = {
-  light: "☀",   // sun
-  dark: "☽",    // moon
-  ocean: "☸",   // wheel of dharma (ocean-ish vibe)
+  light: "☀",
+  dark: "☽",
+  ocean: "☸",
 };
 
 function readTheme(): Theme {
@@ -28,7 +28,6 @@ function readTheme(): Theme {
     const v = localStorage.getItem(STORAGE_KEY) as Theme | null;
     if (v && THEMES.includes(v)) return v;
   } catch { /* ignore */ }
-  // Default: prefer system dark
   if (typeof window !== "undefined" && window.matchMedia?.("(prefers-color-scheme: dark)").matches) {
     return "dark";
   }
@@ -39,6 +38,9 @@ function applyTheme(t: Theme): void {
   const root = document.documentElement;
   root.dataset.theme = t;
 }
+
+// Apply theme immediately on module load so there's no flash
+applyTheme(readTheme());
 
 export default function ThemeToggle() {
   const [theme, setTheme] = useState<Theme>(() => readTheme());
@@ -60,6 +62,3 @@ export default function ThemeToggle() {
     </button>
   );
 }
-
-// Apply theme immediately on module load so there's no flash
-applyTheme(readTheme());

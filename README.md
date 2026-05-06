@@ -1,4 +1,4 @@
-# Vansavali Web — Browser Edition
+# Valuation Web — Browser Edition
 
 Browser-based valuation report generator. Same outputs as the Python/Tkinter
 version (`Report.xlsx` + `Photo.xlsx` for Nepal SBI Bank land valuations) but

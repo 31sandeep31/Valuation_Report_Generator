@@ -13,6 +13,8 @@ import ThemeToggle from "./components/ThemeToggle";
 type Menu = "report" | "calc";
 type Tab = "client" | "plots" | "comments" | "generate";
 
+const HOMEPAGE_URL = "https://www.sandeepkafle.com.np";
+
 export default function App() {
   const [authed, setAuthed] = useState<boolean>(() => isAuthed());
   const [menu, setMenu] = useState<Menu>("report");
@@ -90,6 +92,15 @@ export default function App() {
         <h1>Valuation Report Generator</h1>
         <span className="subtitle">browser edition · runs entirely client-side</span>
         <div className="header-actions">
+          <a
+            className="home-link"
+            href={HOMEPAGE_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            title="Open sandeepkafle.com.np in a new tab"
+          >
+            <span className="arrow">←</span> sandeepkafle.com.np
+          </a>
           <ThemeToggle />
           <button className="btn secondary small" onClick={signOut}>Sign out</button>
         </div>

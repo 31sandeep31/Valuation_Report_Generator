@@ -150,6 +150,26 @@ export default function PlotPanel({ plot, onChange }: Props) {
   );
 }
 
+interface TriRowProps {
+  index: number;
+  value: Triangle;
+  onChange: (side: keyof Triangle, v: number) => void;
+}
+
+function TriangleRow({ index, value, onChange }: TriRowProps) {
+  return (
+    <>
+      <div>#{index + 1}</div>
+      <input type="number" step="0.01" value={value.a || ""}
+             onChange={(e) => onChange("a", parseFloat(e.target.value) || 0)} />
+      <input type="number" step="0.01" value={value.b || ""}
+             onChange={(e) => onChange("b", parseFloat(e.target.value) || 0)} />
+      <input type="number" step="0.01" value={value.c || ""}
+             onChange={(e) => onChange("c", parseFloat(e.target.value) || 0)} />
+    </>
+  );
+}
+
 interface BuildingFormProps {
   building: Building;
   onChange: (b: Building) => void;
@@ -249,26 +269,6 @@ function FloorRow({ floor, onChange, onRemove, canRemove }: FloorRowProps) {
              onChange={(e) => onChange("area", parseFloat(e.target.value) || 0)} />
       <button type="button" className="btn secondary small"
               disabled={!canRemove} onClick={onRemove}>✕</button>
-    </>
-  );
-}
-
-interface TriRowProps {
-  index: number;
-  value: Triangle;
-  onChange: (side: keyof Triangle, v: number) => void;
-}
-
-function TriangleRow({ index, value, onChange }: TriRowProps) {
-  return (
-    <>
-      <div>#{index + 1}</div>
-      <input type="number" step="0.01" value={value.a || ""}
-             onChange={(e) => onChange("a", parseFloat(e.target.value) || 0)} />
-      <input type="number" step="0.01" value={value.b || ""}
-             onChange={(e) => onChange("b", parseFloat(e.target.value) || 0)} />
-      <input type="number" step="0.01" value={value.c || ""}
-             onChange={(e) => onChange("c", parseFloat(e.target.value) || 0)} />
     </>
   );
 }

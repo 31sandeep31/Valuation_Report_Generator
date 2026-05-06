@@ -42,9 +42,10 @@ export default function GenerateTab({ report, onLoadSample }: Props) {
 
       if (report.plots.length > 2) {
         append("info",
-          `Note: ${report.plots.length} plots requested but the 2-plot template only ` +
-          `wrote plots 1–2. Manually duplicate the Plot 2 sections in the generated ` +
-          `Report.xlsx for the remaining plots.`);
+          `Note: ${report.plots.length} plots requested. Plots 1-2 use the ` +
+          `template's live formulas; plots 3+ are computed in code and appended ` +
+          `as 'Additional Plots' with per-plot Market / FMV / Distress + a grand ` +
+          `total over all plots.`);
       }
       append("ok", "Done. Open the files in Excel to recalculate formulas.");
     } catch (e: any) {
@@ -58,7 +59,7 @@ export default function GenerateTab({ report, onLoadSample }: Props) {
   return (
     <div>
       <p>
-        Click <b>Generate</b> to build <code>Report.xlsx</code> and <code>Photo.xlsx</code>;
+        Click <b>Generate</b> to create <code>Report.xlsx</code> and <code>Photo.xlsx</code>;
         both files will download to your machine. Open them in Excel — the
         templates contain 157 / 268 formulas that recalculate on open
         (areas, weighted rates, Market / Fair Market / Distress values, totals).

@@ -29,14 +29,14 @@ export default function ClientTab({ report, onChange }: Props) {
         <input type="text" value={report.clientName}
                onChange={(e) => set({ clientName: e.target.value })} />
         <label>Report date</label>
-        <input type="text" value={report.reportDate} placeholder="15 July, 2025"
+        <input type="text" placeholder="15 July, 2025" value={report.reportDate}
                onChange={(e) => set({ reportDate: e.target.value })} />
 
         <label>Client address</label>
         <input type="text" value={report.clientAddress}
                onChange={(e) => set({ clientAddress: e.target.value })} />
         <label>Visit date</label>
-        <input type="text" value={report.visitDate} placeholder="10 July, 2025"
+        <input type="text" placeholder="10 July, 2025" value={report.visitDate}
                onChange={(e) => set({ visitDate: e.target.value })} />
 
         <label>Phone</label>

@@ -2,7 +2,7 @@ import { useState } from "react";
 import { ValuationReport, emptyPlot } from "../types";
 import PlotPanel from "./PlotPanel";
 
-const MAX_PLOTS = 5;
+const MAX_PLOTS = 6;
 
 interface Props {
   report: ValuationReport;
@@ -36,15 +36,14 @@ export default function PlotsTab({ report, onChange }: Props) {
           max={MAX_PLOTS}
           value={report.plots.length}
           onChange={(e) => setPlotCount(parseInt(e.target.value, 10) || 1)}
-          style={{ maxWidth: 90 }}
+          style={{ maxWidth: 120 }}
         />
       </div>
       {report.plots.length > 2 && (
         <div className="notice">
-          Plots 3+ are computed in code and appended to the report as a
-          <b> "Additional Plots"</b> section with per-plot Market / FMV /
-          Distress values plus a grand total over all {report.plots.length} plots.
-          Plot 1 + Plot 2 still use the template's live formulas.
+          Plots 1–2 use the template's live formulas. Plots 3+ are computed in
+          code and appended as an <b>"Additional Plots"</b> section with per-plot
+          Market / FMV / Distress + a grand total over all {report.plots.length} plots.
         </div>
       )}
 

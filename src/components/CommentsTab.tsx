@@ -47,10 +47,10 @@ export default function CommentsTab({ report, onChange }: Props) {
       </div>
 
       <div className="section-title">PHOTOS</div>
-      <div className="muted" style={{ marginBottom: 8 }}>
+      <p className="muted" style={{ marginBottom: 8 }}>
         Pictorial views: 6 photos per plot, ordered SE, S, SW, NW, N, NE.
-        First 6 (alphabetical) → Plot 1; next 6 → Plot 2.
-      </div>
+        First 6 (alphabetical) → Plot 1; next 6 → Plot 2, etc.
+      </p>
       <div className="file-input">
         <input
           type="file"

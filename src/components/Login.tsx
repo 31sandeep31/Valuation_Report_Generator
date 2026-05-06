@@ -1,13 +1,11 @@
 import { FormEvent, useEffect, useState } from "react";
 
-const STORAGE_KEY = "vansavali.authed";
+const STORAGE_KEY = "valuation.authed";
 
-// Credentials are intentionally only a soft gate.
-// They live in the bundle - this is NOT a real authentication boundary,
-// just a "please confirm you're the right operator" prompt.
 const USERNAME = "Mansang";
 const PASSWORD = "M@nsangkot";
 const HINT = "Sano Gaudo";
+const HOMEPAGE_URL = "https://www.sandeepkafle.com.np";
 
 export function isAuthed(): boolean {
   try {
@@ -97,6 +95,9 @@ export default function Login({ onSuccess }: Props) {
           </div>
         )}
       </form>
+      <a className="home-link" href={HOMEPAGE_URL} target="_blank" rel="noopener noreferrer">
+        <span className="arrow">←</span> Back to sandeepkafle.com.np
+      </a>
     </div>
   );
 }

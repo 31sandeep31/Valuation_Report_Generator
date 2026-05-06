@@ -30,7 +30,6 @@ export default function LandCalculator() {
   );
 }
 
-// ---------- Simple unit converter ------------------------------------------
 const ALL_UNITS: SimpleUnit[] = [
   "dhur", "kattha", "bigha",
   "daam", "paisa", "aana", "ropani",
@@ -68,7 +67,6 @@ function ConvertTool() {
   );
 }
 
-// ---------- Compound (B-K-D and R-A-P-D) -----------------------------------
 function CompoundTool() {
   const [bigha, setBigha] = useState(0);
   const [kattha, setKattha] = useState(0);
@@ -154,7 +152,6 @@ function Row({ k, v }: { k: string; v: string }) {
   );
 }
 
-// ---------- Triangle area calculator ---------------------------------------
 function AreaTool() {
   const [rows, setRows] = useState<{ a: number; b: number; c: number }[]>([
     { a: 0, b: 0, c: 0 },
