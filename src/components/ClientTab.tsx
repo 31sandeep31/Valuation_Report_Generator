@@ -43,8 +43,11 @@ export default function ClientTab({ report, onChange }: Props) {
         <input type="text" value={report.clientPhone}
                onChange={(e) => set({ clientPhone: e.target.value })} />
         <label>Property type</label>
-        <input type="text" value={report.propertyType}
-               onChange={(e) => set({ propertyType: e.target.value })} />
+        <select value={report.propertyType}
+                onChange={(e) => set({ propertyType: e.target.value })}>
+          <option value="Land Only">Land Only</option>
+          <option value="Land and Building">Land and Building</option>
+        </select>
 
         <label>Property owner</label>
         <input type="text" value={report.ownerName}
